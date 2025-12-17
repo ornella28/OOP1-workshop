@@ -47,6 +47,7 @@ public class Main {
                 System.out.println("- " + p.getItemName() + ": KR" + p.getPrice());
             }
             System.out.println("Total Price: " + order.getTotalPrice());
+         System.out.println();
 
 
          //Creating a new order from another customer
