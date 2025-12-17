@@ -9,7 +9,7 @@ public class Product {
     private double price;
 
     //Creating constructor to initialize fields
-    public Product(int id, String itemName, double totalPrice) {
+    public Product(int id, String itemName, double price) {
         this.id = id;
         this.itemName = itemName;
         this.price = price;
@@ -21,7 +21,7 @@ public class Product {
         return itemName;
     }
 
-    public double getTotalPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -31,6 +31,6 @@ public class Product {
     public String toString() {
         return "Id: " + id +
                 ", Item Name: '" + itemName + '\'' +
-                ", Total Price: " + price;
+                ", Price: " + price;
     }
 }

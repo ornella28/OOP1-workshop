@@ -20,6 +20,14 @@ public class Order {
         this.products = new ArrayList<>();
         this.orderDate = orderDate;
     }
+// method to calculate total price
+    public double calculateTotalPrice(){
+        double total=0;
+        for(int i=0; i< products.size(); i++){
+            total += products.get(i).getPrice();
+        }
+        return total;
+    }
 
     //Generating getters
 
@@ -32,21 +40,17 @@ public class Order {
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        return calculateTotalPrice();
     }
 
     public ArrayList<Product> getProducts() {
         return products;
     }
 
-    //add a product to the order
-    public void addProduct(Product product) {
+    //method to add a product to the order
+    public double addProduct(Product product) {
         products.add(product);
-       // totalPrice += product.getTotalPrice();
-        totalPrice=0;
-        for(int i=0; i< products.size(); i++){
-            totalPrice += products.get(i).getTotalPrice();
-        }
+        return calculateTotalPrice();
 
 
     }

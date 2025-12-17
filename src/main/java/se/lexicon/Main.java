@@ -21,6 +21,7 @@ public class Main {
             // create order and add products
             Order order = new Order(1001, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now());
             order.addProduct(phone);
+            order.addProduct(tablet);
 
             // print order details including the customer who placed the order, the products in the order, and the total price
          System.out.println("================= Order Details ================");
@@ -29,7 +30,7 @@ public class Main {
          System.out.println("Customer: " + customer.getName() + ", Email: " + customer.getEmail());
             System.out.println("Products in Order:");
             for (Product p : order.getProducts()) {
-                System.out.println("- " + p.getItemName() + ": KR" + p.getTotalPrice());
+                System.out.println("- " + p.getItemName() + ": KR" + p.getPrice());
             }
             System.out.println("Total Price: " + order.getTotalPrice());
 
