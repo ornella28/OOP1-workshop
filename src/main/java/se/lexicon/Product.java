@@ -6,13 +6,13 @@ public class Product {
 
     private int id;
     private String itemName;
-    private double totalPrice;
+    private double price;
 
     //Creating constructor to initialize fields
     public Product(int id, String itemName, double totalPrice) {
         this.id = id;
         this.itemName = itemName;
-        this.totalPrice = totalPrice;
+        this.price = price;
     }
 
     //Generating getters
@@ -22,7 +22,7 @@ public class Product {
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        return price;
     }
 
     //Override method toString()
@@ -31,6 +31,6 @@ public class Product {
     public String toString() {
         return "Id: " + id +
                 ", Item Name: '" + itemName + '\'' +
-                ", Total Price: " + totalPrice;
+                ", Total Price: " + price;
     }
 }
