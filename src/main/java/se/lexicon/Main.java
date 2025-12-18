@@ -27,26 +27,35 @@ public class Main {
             Product USBDrive = new Product(10, "USB Drive", 19.99);
 
             // create order and add products
-            Order order = new Order(1001, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now());
-            order.addProduct(phone);
-            order.addProduct(tablet);
-            order.addProduct(notebook);
-            order.addProduct(headphones);
-            order.addProduct(backpack);
-            order.addProduct(charger);
+            Order order = new Order(1001, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now(), customer , new java.util.ArrayList<>());
+            order.addProduct(phone, 1);
+            order.addProduct(tablet, 2);
+            order.addProduct(notebook, 4);
+            order.addProduct(headphones, 1);
+            order.addProduct(backpack, 1);
+            order.addProduct(charger, 2);
 
 
 
             // print order details including the customer who placed the order, the products in the order, and the total price
+
          System.out.println("================= Order Details 1================");
             System.out.println("Order ID: " + order.getOrderId());
             System.out.println("Order Date: " + order.getOrderDate());
          System.out.println("Customer: " + customer.getName() + ", Email: " + customer.getEmail() + ", Birth Date: " + customer.getBirthDate());
             System.out.println("Products in Order:");
-            for (Product p : order.getProducts()) {
-                System.out.println("- " + p.getItemName() + ": KR" + p.getPrice());
-            }
-            System.out.println("Total Price: " + order.getTotalPrice());
+            /*for (Product p : order.getProducts()) {
+                System.out.println("- " + p.getItemName() + "Qty:" + order.getQuantities() + ": KR" + p.getPrice());
+            }*/
+
+         for (int i = 0; i < order.getProducts().size(); i++) {
+             Product p = order.getProducts().get(i);
+             int qty = order.getQuantities().get(i);
+             System.out.println("- " + p.getItemName() + " Qty:" + qty + "--" + "KR" + p.getPrice());
+
+         }
+         System.out.println("Total Price: " + order.getTotalPrice());
+
          System.out.println();
 
 
@@ -54,22 +63,27 @@ public class Main {
 
          Customer customer2 = new Customer(2, "John Doe", "johndoe@gmail.com", java.time.LocalDate.of(1990, 1, 1));
 
-         Order order2 = new Order(1002, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now());
-         order2.addProduct(phone);
-         order2.addProduct(charger);
-         order2.addProduct(pen);
-         order2.addProduct(waterBottle);
+         Order order2 = new Order(1002, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now(), customer2 , new java.util.ArrayList<>());
+         order2.addProduct(phone, 1);
+         order2.addProduct(charger, 1);
+         order2.addProduct(pen, 5);
+         order2.addProduct(waterBottle, 1);
 
-         // print order details including the customer who placed the order, the products in the order, and the total price
-         System.out.println("================= Order Details 2================");
+         //print order details including the customer who placed the order, the products in the order, and the total price
+        System.out.println("================= Order Details 2================");
          System.out.println("Order ID: " + order2.getOrderId());
          System.out.println("Order Date: " + order2.getOrderDate());
          System.out.println("Customer: " + customer.getName() + ", Email: " + customer.getEmail() + ", Birth Date: " + customer.getBirthDate());
          System.out.println("Products in Order:");
-         for (Product p : order2.getProducts()) {
-             System.out.println("- " + p.getItemName() + ": KR" + p.getPrice() + "KR");
+         for (int i = 0; i < order2.getProducts().size(); i++) {
+             Product p = order2.getProducts().get(i);
+             int qty = order2.getQuantities().get(i);
+             System.out.println("- " + p.getItemName() + " Qty:" + qty + "--" + "KR" + p.getPrice());
+
          }
-         System.out.println("Total Price: " + order2.getTotalPrice() + "KR");
+         System.out.println("Total Price: " + order2.getTotalPrice());
+
+         System.out.println();
 
 
 
