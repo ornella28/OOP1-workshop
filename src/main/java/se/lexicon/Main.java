@@ -27,7 +27,7 @@ public class Main {
             Product USBDrive = new Product(10, "USB Drive", 19.99);
 
             // create order and add products
-            Order order = new Order(1001, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now(), customer , new java.util.ArrayList<>());
+            Order order = new Order(1001, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now(), customer , new java.util.ArrayList<>(), OrderStatus.CREATED, 15.0);
             order.addProduct(phone, 1);
             order.addProduct(tablet, 2);
             order.addProduct(notebook, 4);
@@ -54,7 +54,10 @@ public class Main {
              System.out.println("- " + p.getItemName() + " Qty:" + qty + "--" + "KR" + p.getPrice());
 
          }
-         System.out.println("Total Price: " + order.getTotalPrice());
+
+         System.out.println("Order status: " + order.getStatus());
+         System.out.println("discount Percentage: " + order.getDiscountPercentage() + "%");
+         System.out.println("Total Price(after discount): " + order.getTotalPrice());
 
          System.out.println();
 
@@ -63,7 +66,7 @@ public class Main {
 
          Customer customer2 = new Customer(2, "John Doe", "johndoe@gmail.com", java.time.LocalDate.of(1990, 1, 1));
 
-         Order order2 = new Order(1002, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now(), customer2 , new java.util.ArrayList<>());
+         Order order2 = new Order(1002, 0.0, new java.util.ArrayList<>(), java.time.LocalDate.now(), customer2 , new java.util.ArrayList<>(), OrderStatus.CREATED, 10.0);
          order2.addProduct(phone, 1);
          order2.addProduct(charger, 1);
          order2.addProduct(pen, 5);
@@ -81,7 +84,10 @@ public class Main {
              System.out.println("- " + p.getItemName() + " Qty:" + qty + "--" + "KR" + p.getPrice());
 
          }
-         System.out.println("Total Price: " + order2.getTotalPrice());
+
+            System.out.println("Order status: " + order2.getStatus());
+            System.out.println("discount Percentage: " + order2.getDiscountPercentage() + "%");
+         System.out.println("Total Price(after discount): " + order2.getTotalPrice());
 
          System.out.println();
 

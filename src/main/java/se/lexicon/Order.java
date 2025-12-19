@@ -12,16 +12,24 @@ public class Order {
     private LocalDate orderDate;
     private Customer customer;
     private ArrayList<Integer> quantities;
+    private OrderStatus status;
+    private double discountPercentage;
+
+
+
 
     //Creating constructor to initialize fields
 
-    public Order(int orderId, double totalPrice, ArrayList<Product> products, LocalDate orderDate, Customer customer, ArrayList<Integer> quantities) {
+    public Order(int orderId, double totalPrice, ArrayList<Product> products, LocalDate orderDate, Customer customer, ArrayList<Integer> quantities, OrderStatus status, double discountPercentage) {
         this.orderId = orderId;
         this.totalPrice = totalPrice;
         this.products = products;
         this.orderDate = orderDate;
         this.customer = customer;
         this.quantities = quantities;
+        this.status = status;
+        this.discountPercentage = discountPercentage;
+
     }
 // method to calculate total price
     public double calculateTotalPrice(){
@@ -29,6 +37,8 @@ public class Order {
         for(int i=0; i< products.size(); i++){
             total += products.get(i).getPrice()* quantities.get(i);
         }
+        double discountAmount = total * (discountPercentage / 100);
+        total -= discountAmount;
         return total;
     }
 
@@ -44,6 +54,14 @@ public class Order {
 
     public double getTotalPrice() {
         return calculateTotalPrice();
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public double getDiscountPercentage() {
+        return discountPercentage;
     }
 
     public ArrayList<Product> getProducts() {
